@@ -1,2 +1,7 @@
-# neovim-config
-Simple &amp; lightweight NeoVim bundle
+# Neovim config
+
+Simple & lightweight Neovim config
+
+## License
+
+MIT
