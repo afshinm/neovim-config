@@ -9,7 +9,7 @@ set background=dark
 set expandtab
 set autoindent
 set softtabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set tabstop=4
 
 colorscheme solarized
@@ -18,7 +18,7 @@ filetype plugin indent on
 
 call plug#begin()
 
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
@@ -45,11 +45,11 @@ call plug#end()
 
 map <C-E> :NERDTreeToggle<CR>
 
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_return               = "⇚"
+let g:javascript_plugin_jsdoc           = 1
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_arrow_function = "⇒"
+let g:javascript_conceal_return         = "⇚"
 
 let g:jsx_ext_required = 0
 
