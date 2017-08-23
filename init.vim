@@ -46,6 +46,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mhinz/vim-startify'
+Plug 'vim-scripts/nginx.vim'
 
 call plug#end()
 
@@ -67,3 +68,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 
 set foldmethod=indent
 set foldlevel=99
+
+au BufRead,BufNewFile *.nginx set ft=nginx
+au BufRead,BufNewFile */etc/nginx/* set ft=nginx
+au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
+au BufRead,BufNewFile nginx.conf set ft=nginx
