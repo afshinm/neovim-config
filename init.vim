@@ -1,6 +1,15 @@
+set spell spelllang=en_us
 set undofile
 set encoding=utf-8
-set clipboard+=unnamedplus
+
+if has('clipboard')
+  if has('unnamedplus')  " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else         " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
+endif
+
 set ignorecase
 set number
 set conceallevel=1
@@ -12,6 +21,16 @@ set autoindent
 set softtabstop=4
 set shiftwidth=2
 set tabstop=4
+
+set history=1000
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
 
 colorscheme solarized
 
@@ -47,10 +66,11 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mhinz/vim-startify'
 Plug 'vim-scripts/nginx.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim'
 
 call plug#end()
-
-map <C-E> :NERDTreeToggle<CR>
 
 let g:javascript_plugin_jsdoc           = 1
 let g:javascript_conceal_function       = "ƒ"
@@ -62,7 +82,10 @@ let g:jsx_ext_required = 0
 
 let g:syntastic_check_on_open=1
 
+map <C-E> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$']
 
 let g:ycm_autoclose_preview_window_after_completion=1
 
@@ -73,3 +96,6 @@ au BufRead,BufNewFile *.nginx set ft=nginx
 au BufRead,BufNewFile */etc/nginx/* set ft=nginx
 au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
+
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
